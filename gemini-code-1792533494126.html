@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สรุปติวสอบ & แนวข้อสอบ Final - UX/UI Design & HCI (CP KKU)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Prompt', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Prompt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Prompt', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-200">
+
+    <!-- Header Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <span class="bg-indigo-600 text-white font-bold text-xs px-2.5 py-1 rounded-md">CP KKU</span>
+                <h1 class="text-base md:text-lg font-bold text-slate-900 dark:text-white">UX/UI Design & HCI — Final Master Guide</h1>
+            </div>
+            <button id="themeToggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition" title="สลับโหมดมืด/สว่าง">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
+
+        <!-- Sidebar Navigation (Desktop) -->
+        <aside class="lg:w-64 flex-shrink-0">
+            <div class="sticky top-20 bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
+                <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">สารบัญเนื้อหา & โจทย์</h2>
+                <nav class="space-y-1 text-xs font-medium">
+                    <a href="#info" class="block px-3 py-2 rounded-md text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50">📌 ข้อมูลการสอบ</a>
+                    <a href="#shneiderman" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300">1. Shneiderman's Rules + โจทย์</a>
+                    <a href="#ia" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300">2. Info Architecture + Sitemap</a>
+                    <a href="#heuristics" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300">3. Usability Heuristics + คำอธิบาย</a>
+                    <a href="#abtesting" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300">4. A/B Testing & Data Table</a>
+                    <a href="#universal" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300">5. Universal Design (UD 7 ข้อ)</a>
+                    <a href="#framework" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300">6. แนวการเขียนตอบภาพรวม</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 space-y-10">
+
+            <!-- Exam Info Card -->
+            <section id="info" class="bg-gradient-to-r from-indigo-600 to-blue-600 rounded-2xl p-6 text-white shadow-lg">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Final Exam 2026</span>
+                        <h2 class="text-2xl md:text-3xl font-extrabold mt-2">วิชา UX/UI Design & HCI</h2>
+                        <p class="text-indigo-100 text-sm mt-1">สรุปเนื้อหา + ตัวอย่างข้อสอบจริง + วิธีทำอย่างเป็นขั้นตอน</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 space-y-1 text-xs md:text-sm">
+                        <p>🗓️ <b>วันที่สอบ:</b> 22 ตุลาคม พ.ศ. 2569</p>
+                        <p>⏰ <b>เวลา:</b> 13.00 - 16.00 น. (3 ชั่วโมง)</p>
+                        <p>📍 <b>สถานที่:</b> ห้องสอบ CP.9127</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 1: Shneiderman -->
+            <section id="shneiderman" class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
+                    <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">ข้อ 1 + ข้อ 3</span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">1. Shneiderman’s Eight Golden Rules</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">หลักการทองคำ 8 ประการสำหรับออกแบบ Interaction Design</p>
+                </div>
+
+                <!-- Highlight Cards for Rule 1 & Rule 3 -->
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-indigo-50 dark:bg-indigo-950/40 p-5 rounded-xl border border-indigo-100 dark:border-indigo-900/50 space-y-2">
+                        <span class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">เน้นข้อ 1</span>
+                        <h3 class="font-bold text-base text-indigo-900 dark:text-indigo-300">Rule 1: Strive for Consistency</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-300">การสร้างความสม่ำเสมอในทุกมิติ เพื่อลดภาระการเรียนรู้ (Learning Curve) ของผู้ใช้:</p>
+                        <ul class="list-disc list-inside text-xs space-y-1 text-slate-600 dark:text-slate-400 pl-1">
+                            <li><b>Visual Consistency:</b> ใช้โทนสี ฟอนต์ ไอคอน ขนาดปุ่ม และการวาง Layout เดียวกันทั้งระบบ</li>
+                            <li><b>Functional Consistency:</b> ปุ่มสัญลักษณ์เหมือนกัน ต้องทำหน้าที่เหมือนกันเสมอ</li>
+                            <li><b>Internal Consistency:</b> สม่ำเสมอภายในผลิตภัณฑ์/ระบบเดียวกัน</li>
+                            <li><b>External Consistency:</b> อิงตามมาตรฐานสากล/Platform Guidelines (iOS/Android)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-emerald-50 dark:bg-emerald-950/40 p-5 rounded-xl border border-emerald-100 dark:border-emerald-900/50 space-y-2">
+                        <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">เน้นข้อ 3</span>
+                        <h3 class="font-bold text-base text-emerald-900 dark:text-emerald-300">Rule 3: Offer Informative Feedback</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-300">ทุกการกระทำของผู้ใช้ ระบบต้องตอบสนองตามระดับความสำคัญของ Action:</p>
+                        <ul class="list-disc list-inside text-xs space-y-1 text-slate-600 dark:text-slate-400 pl-1">
+                            <li><b>Frequent / Minor Action:</b> ตอบสนองเบาๆ เช่น ปุ่มเปลี่ยนสีเมื่อ Hover/Pressed</li>
+                            <li><b>Substantial Action:</b> ตอบสนองชัดเจน เช่น Toast Notification หรือ Progress Loading Bar</li>
+                            <li><b>Critical / Major Action:</b> ต้องได้รับการยืนยัน เช่น Confirmation Modal สีแดงก่อนลบข้อมูล</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Table for all 8 Rules -->
+                <div class="space-y-2">
+                    <h3 class="text-sm font-bold text-slate-900 dark:text-white">ตารางสรุปกฎทองคำทั้ง 8 ข้อ</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+                            <thead class="bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white font-semibold">
+                                <tr>
+                                    <th class="p-3 w-10">#</th>
+                                    <th class="p-3 w-48">Golden Rule</th>
+                                    <th class="p-3">คำอธิบาย</th>
+                                    <th class="p-3">ตัวอย่างการประยุกต์ใช้ใน UI</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                                <tr><td class="p-3 font-bold">1</td><td class="p-3 font-semibold text-slate-900 dark:text-white">Strive for Consistency</td><td class="p-3">รักษาความสม่ำเสมอของสี ฟอนต์ คำศัพท์ และตำแหน่งปุ่ม</td><td class="p-3">ปุ่ม "ยืนยัน" อยู่ฝั่งขวาและใช้สีน้ำเงินเหมือนกันทุกหน้าจอ</td></tr>
+                                <tr><td class="p-3 font-bold">2</td><td class="p-3 font-semibold text-slate-900 dark:text-white">Seek Universal Usability</td><td class="p-3">ออกแบบให้รองรับทั้งผู้ใช้มือใหม่และผู้เชี่ยวชาญ</td><td class="p-3">มี Tooltip ช่วยเหลือ และรองรับ Keyboard Shortcuts (Ctrl+S)</td></tr>
+                                <tr><td class="p-3 font-bold">3</td><td class="p-3 font-semibold text-slate-900 dark:text-white">Offer Informative Feedback</td><td class="p-3">มีระบบตอบสนองที่ชัดเจนตามความสำคัญของ Action</td><td class="p-3">แสดง Loading Spinner ขณะโหลดข้อมูล และ Pop-up เมื่อสำเร็จ</td></tr>
+                                <tr><td class="p-3 font-bold">4</td><td class="p-3 font-semibold text-slate-900 dark:text-white">Design Dialogs to Yield Closure</td><td class="p-3">จัดลำดับงานเป็น ขั้นเริ่มต้น -> กลาง -> สิ้นสุด ชัดเจน</td><td class="p-3">หน้า Order Confirmation แสดงสรุปเลขคำสั่งซื้อหลังชำระเงิน</td></tr>
+                                <tr><td class="p-3 font-bold">5</td><td class="p-3 font-semibold text-slate-900 dark:text-white">Prevent Errors</td><td class="p-3">ป้องกันผู้ใช้ทำผิดพลาด และแก้ไขง่ายเมื่อเกิดข้อผิดพลาด</td><td class="p-3">Disable ปุ่ม Submit หากยังกรอกข้อมูลในฟอร์มไม่ครบ</td></tr>
+                                <tr><td class="p-3 font-bold">6</td><td class="p-3 font-semibold text-slate-900 dark:text-white">Permit Easy Reversal of Actions</td><td class="p-3">อนุญาตให้ผู้ใช้ยกเลิกหรือย้อนกลับการกระทำได้ง่าย</td><td class="p-3">ปุ่ม Undo / Redo (Ctrl+Z) และปุ่ม "ยกเลิก" ก่อนยืนยัน</td></tr>
+                                <tr><td class="p-3 font-bold">7</td><td class="p-3 font-semibold text-slate-900 dark:text-white">Keep Users in Control</td><td class="p-3">ทำให้ผู้ใช้รู้สึกเป็นผู้ควบคุม ไม่ถูกระบบบังคับ</td><td class="p-3">ไม่เล่นวิดีโอเสียงดังอัตโนมัติ (Auto-play) และกดยกเลิกได้ตลอด</td></tr>
+                                <tr><td class="p-3 font-bold">8</td><td class="p-3 font-semibold text-slate-900 dark:text-white">Reduce Short-term Memory Load</td><td class="p-3">ลดภาระการจำระยะสั้น (Recognize rather than recall)</td><td class="p-3">แสดงสรุปสินค้าและราคารวมในหน้าชำระเงินโดยไม่ต้องย้อนดู</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Sample Exam Question & Solution -->
+                <div class="bg-slate-100 dark:bg-slate-700/60 p-5 rounded-xl space-y-3 border-l-4 border-indigo-600">
+                    <span class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">ตัวอย่างข้อสอบที่คาดว่าจะออกจริง</span>
+                    <h4 class="font-bold text-sm text-slate-900 dark:text-white">โจทย์: ระบบจองติวเตอร์ออนไลน์มีหน้าจอที่ปุ่ม "บันทึกข้อมูล" ในหน้าโปรไฟล์ใช้สีเขียววางฝั่งขวา แต่ในหน้าชำระเงินปุ่ม "บันทึกการจอง" กลับใช้สีส้มวางฝั่งซ้าย นอกจากนี้ เมื่อผู้ใช้กดลบคอร์สเรียน ระบบทำรายการทันทีโดยไม่มีข้อความแจ้งเตือนใดๆ จงวิเคราะห์ว่าละเมิดกฎ Shneiderman ข้อใดบ้าง พร้อมเสนอแนวทางแก้ไข</h4>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-lg space-y-2 text-xs border border-slate-200 dark:border-slate-600">
+                        <p class="font-bold text-indigo-600 dark:text-indigo-400">📝 แนวทางการเขียนตอบ / วิธีทำ:</p>
+                        <ol class="list-decimal list-inside space-y-1 text-slate-600 dark:text-slate-300">
+                            <li><b>ประเด็นปุ่มต่างสี/ต่างตำแหน่ง:</b> ละเมิด <b>Rule 1: Strive for Consistency</b><br>
+                            <i>การแก้ไข:</i> ปรับเปลี่ยนให้ปุ่ม Action หลัก (Primary Button) ใช้สีเขียวและวางอยู่ฝั่งขวาเหมือนกันทุกหน้าจอทั้งระบบ (Visual & Functional Consistency)</li>
+                            <li><b>ประเด็นการลบข้อมูลทันทีโดยไม่เตือน:</b> ละเมิด <b>Rule 3: Offer Informative Feedback</b> และ <b>Rule 5: Prevent Errors</b><br>
+                            <i>การแก้ไข:</i> เนื่องจากเป็น Action ระดับ Critical/Major ต้องเพิ่ม Confirmation Modal Dialog สีแดงเด้งขึ้นถามยืนยัน เช่น "คุณต้องการลบคอร์สนี้ใช่หรือไม่?" พร้อมปุ่ม "ยืนยัน" และ "ยกเลิก" เพื่อป้องกันความผิดพลาด</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Information Architecture -->
+            <section id="ia" class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
+                    <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">ข้อ 2</span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">2. Information Architecture (Card Sorting & Sitemap)</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">การจัดวางโครงสร้าง หมวดหมู่ และลำดับความสำคัญของข้อมูล</p>
+                </div>
+
+                <!-- Card Sorting Summary -->
+                <div class="space-y-3">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">1. Card Sorting (เทคนิคการวิจัยการจัดกลุ่มข้อมูล)</h3>
+                    <div class="grid md:grid-cols-3 gap-4 text-xs">
+                        <div class="bg-slate-50 dark:bg-slate-700/50 p-4 rounded-xl border border-slate-200 dark:border-slate-600 space-y-1">
+                            <span class="font-bold text-indigo-600 dark:text-indigo-400 text-sm block">Open Card Sorting</span>
+                            <p class="text-slate-600 dark:text-slate-300">ผู้ใช้จัดกลุ่มการ์ด และ<b>ตั้งชื่อหมวดหมู่เอง</b></p>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400"><b>จุดประสงค์:</b> ใช้ช่วงเริ่มต้นโปรเจกต์ เพื่อค้นหาแนวคิดการสร้างหมวดหมู่ใหม่ๆ จากมุมมองผู้ใช้</p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-700/50 p-4 rounded-xl border border-slate-200 dark:border-slate-600 space-y-1">
+                            <span class="font-bold text-indigo-600 dark:text-indigo-400 text-sm block">Closed Card Sorting</span>
+                            <p class="text-slate-600 dark:text-slate-300">ผู้ใช้จัดกลุ่มการ์ดลงใน<b>หมวดหมู่ที่กำหนดไว้แล้ว</b></p>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400"><b>จุดประสงค์:</b> ใช้ทดสอบโครงสร้างเมนูปัจจุบันว่าเข้าใจง่ายหรือเหมาะสมหรือไม่</p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-700/50 p-4 rounded-xl border border-slate-200 dark:border-slate-600 space-y-1">
+                            <span class="font-bold text-indigo-600 dark:text-indigo-400 text-sm block">Hybrid Card Sorting</span>
+                            <p class="text-slate-600 dark:text-slate-300">กำหนดหมวดหมู่หลักไว้บางส่วน แต่ให้<b>ตั้งหมวดเพิ่มได้</b></p>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400"><b>จุดประสงค์:</b> ใช้ประเมินโครงสร้างเดิมพร้อมเปิดรับไอเดียใหม่</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Visual Sitemap Diagram -->
+                <div class="space-y-3 pt-2">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">2. Visual Sitemap Structure (ผังโครงสร้างแบบเชื่อมต่อกันต่อเนื่อง)</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-300">แผนผังแสดงโครงสร้างการเชื่อมโยงระบบ Achuep Tutor ที่มีความสัมพันธ์แบบ Hierarchy (Parent-Child):</p>
+                    
+                    <!-- Connected UI Sitemap Tree -->
+                    <div class="bg-slate-900/95 p-6 rounded-xl text-white space-y-4 shadow-inner">
+                        <div class="flex justify-center">
+                            <div class="bg-indigo-600 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md border border-indigo-400 flex items-center gap-2">
+                                <span>🏠</span> <span>Home (หน้าหลักระบบ Achuep Tutor)</span>
+                            </div>
+                        </div>
+
+                        <div class="w-0.5 h-6 bg-indigo-500 mx-auto"></div>
+
+                        <div class="grid md:grid-cols-3 gap-6 relative">
+                            <div class="relative bg-slate-800 border border-indigo-500/50 p-4 rounded-xl space-y-3">
+                                <div class="bg-indigo-950 text-indigo-300 font-bold text-xs p-2 rounded-lg border border-indigo-700 text-center">
+                                    1. Courses & Tutors (ค้นหาและจอง)
+                                </div>
+                                <div class="w-0.5 h-3 bg-indigo-500/50 mx-auto"></div>
+                                <ul class="space-y-2 text-xs text-slate-300 pl-2">
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                                        <span>Course Search (TGAT, TPAT, A-Level)</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                                        <span>Tutor Profiles & Rating Reviews</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                                        <span>Schedule & Time Slot Selection</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="relative bg-slate-800 border border-emerald-500/50 p-4 rounded-xl space-y-3">
+                                <div class="bg-emerald-950 text-emerald-300 font-bold text-xs p-2 rounded-lg border border-emerald-700 text-center">
+                                    2. Checkout & Payment (ชำระเงิน)
+                                </div>
+                                <div class="w-0.5 h-3 bg-emerald-500/50 mx-auto"></div>
+                                <ul class="space-y-2 text-xs text-slate-300 pl-2">
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                        <span>Order Summary & Discount Coupon</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                        <span>Payment Gateway (PromptPay/Card)</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                        <span>Booking Confirmation & E-Receipt</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="relative bg-slate-800 border border-purple-500/50 p-4 rounded-xl space-y-3">
+                                <div class="bg-purple-950 text-purple-300 font-bold text-xs p-2 rounded-lg border border-purple-700 text-center">
+                                    3. Community & Join (ชุมชนและร่วมงาน)
+                                </div>
+                                <div class="w-0.5 h-3 bg-purple-500/50 mx-auto"></div>
+                                <ul class="space-y-2 text-xs text-slate-300 pl-2">
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                                        <span>Become a Tutor (สมัครเป็นผู้สอน)</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                                        <span>About Us & Vision (KKU Community)</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                                        <span>Contact Us & Help Center FAQ</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Exam Question & Solution -->
+                <div class="bg-slate-100 dark:bg-slate-700/60 p-5 rounded-xl space-y-3 border-l-4 border-indigo-600">
+                    <span class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">ตัวอย่างข้อสอบที่คาดว่าจะออกจริง</span>
+                    <h4 class="font-bold text-sm text-slate-900 dark:text-white">โจทย์: หากได้รับโจทย์ให้พัฒนาเว็บไซต์ Achuep Tutor ให้ตอบคำถามต่อไปนี้:<br>
+                    1) ควรเลือกใช้ Card Sorting รูปแบบใดในการจัดหมวดหมู่เนื้อหาเว็บตั้งแต่เริ่มต้น พร้อมบอกเหตุผล<br>
+                    2) อธิบายลำดับความสัมพันธ์ของ Sitemap ที่ออกแบบ</h4>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-lg space-y-3 text-xs border border-slate-200 dark:border-slate-600">
+                        <p class="font-bold text-indigo-600 dark:text-indigo-400">📝 แนวทางการเขียนตอบ / วิธีทำ:</p>
+                        <div>
+                            <p class="font-semibold text-slate-800 dark:text-slate-200">ตอบข้อ 1): เลือกใช้ Open Card Sorting</p>
+                            <p class="text-slate-600 dark:text-slate-300"><b>เหตุผล:</b> เนื่องจากเป็นระบบที่พัฒนาขึ้นใหม่ การใช้ Open Card Sorting ให้ผู้ใช้งานจริง (นักศึกษา/ผู้เรียน) เป็นผู้จัดกลุ่มการ์ดและตั้งชื่อหมวดหมู่ด้วยตนเอง จะช่วยให้เข้าใจ Mental Model ของผู้ใช้ และนำชื่อหมวดหมู่ที่ผู้ใช้คุ้นเคยที่สุดมาสร้างเป็น Navigation Menu หลัก</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800 dark:text-slate-200">ตอบข้อ 2): อธิบายลำดับขั้น Sitemap</p>
+                            <p class="text-slate-600 dark:text-slate-300">จัดโครงสร้างแบบ Parent-Child Hierarchy 3 หมวดหมู่หลักใต้หน้า Home ได้แก่: 1) Courses & Tutors (เน้นการค้นหาคอร์สและดูโปรไฟล์ติวเตอร์) 2) Checkout & Payment (จัดการตระกร้าและชำระเงิน) และ 3) Community & Join (สำหรับการเปิดรับสมัครติวเตอร์รุ่นพี่และการติดต่อสอบถาม) เพื่อให้ผู้ใช้ค้นหาข้อมูลได้ไม่เกิน 3 คลิก (3-Click Rule)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Nielsen's Heuristics (With Enhanced Explanations) -->
+            <section id="heuristics" class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
+                    <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">ข้อ 4 (เน้นพิเศษ)</span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">3. Nielsen’s 10 Usability Heuristics (ฉบับเพิ่มคำอธิบายเจาะลึก)</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">หลักการประเมินความสะดวกในการใช้งานโดยผู้เชี่ยวชาญ (Heuristic Evaluation) ของ Jakob Nielsen</p>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700">
+                    <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+                        <thead class="bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white font-semibold">
+                            <tr>
+                                <th class="p-3 w-8">#</th>
+                                <th class="p-3 w-40">หลักการ Heuristic</th>
+                                <th class="p-3 w-64">คำอธิบายหลักการแบบเจาะลึก (Concept)</th>
+                                <th class="p-3">ข้อผิดพลาดที่พบ (Violation)</th>
+                                <th class="p-3">แนวทางแก้ไข (Remediation)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                            <tr>
+                                <td class="p-3 font-bold">1</td>
+                                <td class="p-3 font-semibold text-slate-900 dark:text-white">Visibility of System Status</td>
+                                <td class="p-3 text-slate-700 dark:text-slate-300">ระบบต้องคอยแจ้งสถานะการทำงานให้ผู้ใช้ทราบเสมอด้วย Visual Feedback ที่เหมาะสม ในเวลาที่เหมาะสม เพื่อให้ผู้ใช้รู้ว่าเกิดอะไรขึ้นกับระบบตลอดเวลา</td>
+                                <td class="p-3 text-red-500 dark:text-red-400">หน้าจอค้างขาวขณะกดโหลดข้อมูล โดยไม่มีตัวบอกสถานะใดๆ ทำให้ผู้ใช้คิดว่าระบบค้าง</td>
+                                <td class="p-3 text-emerald-600 dark:text-emerald-400">ใส่ Skeleton Screen, Progress Bar หรือ Loading Spinner แสดงเปอร์เซ็นต์</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">2</td>
+                                <td class="p-3 font-semibold text-slate-900 dark:text-white">Match System & Real World</td>
+                                <td class="p-3 text-slate-700 dark:text-slate-300">ออกแบบระบบ สัญลักษณ์ คอนเซ็ปต์ และภาษา ให้สอดคล้องกับโลกจริงและกรอบความคิด (Mental Model) ของผู้ใช้ หลีกเลี่ยงศัพท์เทคนิคทางคอมพิวเตอร์</td>
+                                <td class="p-3 text-red-500 dark:text-red-400">ใช้ศัพท์เทคนิคฐานข้อมูลแสดง Error เช่น "Database Connection Failed Code 0x800"</td>
+                                <td class="p-3 text-emerald-600 dark:text-emerald-400">ใช้ภาษาพูดง่ายๆ เช่น "ไม่สามารถเชื่อมต่อระบบได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง"</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">3</td>
+                                <td class="p-3 font-semibold text-slate-900 dark:text-white">User Control & Freedom</td>
+                                <td class="p-3 text-slate-700 dark:text-slate-300">ให้ผู้ใช้มีอิสระและรู้สึกเป็นผู้ควบคุมระบบ มีทางออกฉุกเฉิน (Emergency Exit) เสมอเมื่อทำผิดพลาดโดยไม่ตั้งใจ โดยไม่ต้องผ่านขั้นตอนซับซ้อน</td>
+                                <td class="p-3 text-red-500 dark:text-red-400">เมื่อกดส่งแบบฟอร์มหรือเปลี่ยนหน้าจอผิด ไม่มีปุ่มกดยกเลิก (Cancel) หรือ Undo</td>
+                                <td class="p-3 text-emerald-600 dark:text-emerald-400">เพิ่มปุ่ม "ยกเลิก", ปุ่ม Back ถอยหลัง และรองรับฟังก์ชัน Undo (Ctrl+Z)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">4</td>
+                                <td class="p-3 font-semibold text-slate-900 dark:text-white">Consistency & Standards</td>
+                                <td class="p-3 text-slate-700 dark:text-slate-300">ใช้คำศัพท์ สัญลักษณ์ ตำแหน่งองค์ประกอบ และรูปแบบ UI ที่เป็นมาตรฐานเดียวกันตลอดทั้งแอปพลิเคชัน และอิงตามมาตรฐานสากล (Platform Guidelines)</td>
+                                <td class="p-3 text-red-500 dark:text-red-400">หน้าแรกใช้ปุ่ม "ตกลง" สีเขียวฝั่งขวา อีกหน้าใช้ปุ่ม "บันทึก" สีส้มวางฝั่งซ้าย</td>
+                                <td class="p-3 text-emerald-600 dark:text-emerald-400">กำหนด Design System มาตรฐานเรื่องสี ฟอนต์ และตำแหน่งปุ่มให้สอดคล้องกันทุกหน้า</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">5</td>
+                                <td class="p-3 font-semibold text-slate-900 dark:text-white">Error Prevention</td>
+                                <td class="p-3 text-slate-700 dark:text-slate-300">ออกแบบเพื่อป้องกันไม่ให้เกิดข้อผิดพลาดขึ้นตั้งแต่แรก ดีกว่าปล่อยให้ผู้ใช้ทำผิดแล้วค่อยแจ้งเตือนแก้ไข เช่น การล็อกรูปแบบข้อมูล หรือการถามยืนยัน</td>
+                                <td class="p-3 text-red-500 dark:text-red-400">ปล่อยให้พิมพ์วันเดือนปีเกิดเองเป็นช่องข้อความอิสระ จนผู้ใช้พิมพ์ Format ผิดพลาด</td>
+                                <td class="p-3 text-emerald-600 dark:text-emerald-400">ใช้ Date Picker Component หรือ Dropdown บังคับเลือกวันแทนการพิมพ์ข้อความ</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">6</td>
+                                <td class="p-3 font-semibold text-slate-900 dark:text-white">Recognition over Recall</td>
+                                <td class="p-3 text-slate-700 dark:text-slate-300">ทำให้ตัวเลือก หน้าตา หรือ Action ต่างๆ มองเห็นได้ชัดเจน ผู้ใช้เห็นแล้วอ๋อทันที ไม่ต้องเค้นสมองดึงความจำระยะสั้น (Short-term memory) มาใช้งาน</td>
+                                <td class="p-3 text-red-500 dark:text-red-400">บังคับให้ผู้ใช้ต้องจำรหัสวิชาหรือรหัสสินค้าจากหน้าแรกเพื่อนำไปพิมพ์ค้นหาในหน้าสอง</td>
+                                <td class="p-3 text-emerald-600 dark:text-emerald-400">แสดงรายการค้นหาล่าสุด (Search History), สินค้าที่เพิ่งดูล่าสุด หรือระบบ Auto-complete</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">7</td>
+                                <td class="p-3 font-semibold text-slate-900 dark:text-white">Flexibility & Efficiency</td>
+                                <td class="p-3 text-slate-700 dark:text-slate-300">มีทางลัด (Accelerators) หรือตัวเลือกยืดหยุ่นสำหรับผู้ใช้ที่เชี่ยวชาญ (Expert) เพื่อทำงานได้รวดเร็วขึ้น แต่ยังคงความง่ายสำหรับผู้ใช้มือใหม่ (Novice)</td>
+                                <td class="p-3 text-red-500 dark:text-red-400">ไม่มีปุ่มคีย์บอร์ดลัด ผู้ใช้ต้องเลื่อนเมาส์คลิกผ่านเมนู 5 ขั้นตอนทุกครั้งเพื่อกดบันทึกงาน</td>
+                                <td class="p-3 text-emerald-600 dark:text-emerald-400">เพิ่ม Keyboard Shortcuts (เช่น Ctrl+S), Quick Action Bar หรือฟังก์ชัน Favorite</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">8</td>
+                                <td class="p-3 font-semibold text-slate-900 dark:text-white">Aesthetic & Minimalist Design</td>
+                                <td class="p-3 text-slate-700 dark:text-slate-300">แสดงเฉพาะข้อมูลที่จำเป็นและสำคัญ ตัดองค์ประกอบที่ไม่เกี่ยวข้องออก เพื่อเพิ่ม Signal-to-Noise Ratio ไม่ใส่เนื้อหาเบี่ยงเบนความสนใจ</td>
+                                <td class="p-3 text-red-500 dark:text-red-400">ใส่ข้อความ ตัวหนังสือ และแบนเนอร์โฆษณาแน่นเต็มหน้าจอ จนหาปุ่มฟังก์ชันหลักไม่เจอ</td>
+                                <td class="p-3 text-emerald-600 dark:text-emerald-400">เพิ่ม White Space (พื้นที่ว่าง) จัดระเบียบ Visual Hierarchy และตัดเนื้อหารกออก</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">9</td>
+                                <td class="p-3 font-semibold text-slate-900 dark:text-white">Recover from Errors</td>
+                                <td class="p-3 text-slate-700 dark:text-slate-300">ข้อความแจ้งเตือนข้อผิดพลาด (Error Message) ต้องใช้ภาษาคนที่ชัดเจน ไม่ใช้ Error Code สื่อสารสาเหตุของปัญหา และระบุวิธีแก้ไขไว้อย่างเป็นรูปธรรม</td>
+                                <td class="p-3 text-red-500 dark:text-red-400">ขึ้นตัวหนังสือเตือนสั้นๆ ว่า "Input Invalid" โดยไม่บอกว่ากรอกผิดที่ตรงไหนหรือผิดอย่างไร</td>
+                                <td class="p-3 text-emerald-600 dark:text-emerald-400">ระบุตำแหน่งและวิธีแก้ชัดเจน เช่น "กรอกรหัสผ่านไม่ถูกต้อง (ต้องมีอย่างน้อย 8 ตัวอักษร)"</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">10</td>
+                                <td class="p-3 font-semibold text-slate-900 dark:text-white">Help & Documentation</td>
+                                <td class="p-3 text-slate-700 dark:text-slate-300">จัดเตรียมคู่มือหรือศูนย์ช่วยเหลือ (Help Center / FAQ) ที่ค้นหาง่าย ตรงประเด็น และเน้นการแก้ปัญหาเฉพาะอย่าง เพื่อช่วยผู้ใช้เมื่อเกิดอุปสรรคในการใช้งาน</td>
+                                <td class="p-3 text-red-500 dark:text-red-400">ไม่มีเมนู FAQ หรือช่องทางค้นหาความช่วยเหลือใดๆ เมื่อผู้ใช้ติดปัญหาในการจอง/ชำระเงิน</td>
+                                <td class="p-3 text-emerald-600 dark:text-emerald-400">จัดทำ Help Center มีช่อง Search ค้นหาปัญหาที่พบบ่อย และระบบติดต่อ Live Chat Support</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Sample Exam Question & Solution -->
+                <div class="bg-slate-100 dark:bg-slate-700/60 p-5 rounded-xl space-y-3 border-l-4 border-indigo-600">
+                    <span class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">ตัวอย่างข้อสอบที่คาดว่าจะออกจริง</span>
+                    <h4 class="font-bold text-sm text-slate-900 dark:text-white">โจทย์: ผู้ใช้กรอกข้อมูลแบบฟอร์มลงทะเบียนติวเตอร์ แต่เมื่อกด Submit ระบบขึ้นข้อความเตือนว่า "Error 500: Invalid Request" แล้วรีเฟรชหน้ากลับไปว่างเปล่า ทำให้ข้อมูลที่กรอกไว้ทั้งหมดหายไป จงใช้หลัก Nielsen's Usability Heuristics วิเคราะห์ปัญหาและเสนอวิธีแก้ไข</h4>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-lg space-y-2 text-xs border border-slate-200 dark:border-slate-600">
+                        <p class="font-bold text-indigo-600 dark:text-indigo-400">📝 แนวทางการเขียนตอบ / วิธีทำ:</p>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 dark:text-slate-300">
+                            <li><b>ปัญหาข้อความเตือน "Error 500":</b> ละเมิด <b>Heuristic #2 (Match System & Real World)</b> และ <b>Heuristic #9 (Recover from Errors)</b><br>
+                            <i>แก้ไข:</i> เปลี่ยนข้อความเตือนเป็นภาษาคนที่เข้าใจง่าย ระบุสาเหตุชัดเจน เช่น "กรอกหมายเลขโทรศัพท์ไม่ครบ 10 หลัก กรุณาตรวจสอบอีกครั้ง"</li>
+                            <li><b>ปัญหาข้อมูลถูกลบหายหมดเมื่อเกิด Error:</b> ละเมิด <b>Heuristic #5 (Error Prevention)</b> และ <b>Heuristic #3 (User Control & Freedom)</b><br>
+                            <i>แก้ไข:</i> ปรับปรุงระบบให้ทำการ Auto-save/Retain Form Data คงข้อมูลเดิมไว้ในช่องกรอก และไฮไลต์กล่องข้อความที่มีปัญหาด้วยสีแดงทันทีโดยไม่ต้องรีเฟรชหน้าใหม่</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: A/B Testing & Complete Data Table -->
+            <section id="abtesting" class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
+                    <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">ข้อ 5</span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">4. A/B Testing & Complete Data Analysis</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">การทดลองเปรียบเทียบ UI สองรูปแบบเพื่อตัดสินใจด้วยข้อมูล (Data-Driven Design)</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4 text-xs">
+                    <div class="bg-amber-50 dark:bg-amber-950/40 p-4 rounded-xl border border-amber-200 dark:border-amber-900/50 space-y-1">
+                        <span class="font-bold text-amber-900 dark:text-amber-300 text-sm block">🧪 สูตรการคำนวณ Conversion Rate (CR)</span>
+                        <div class="bg-white dark:bg-slate-900 p-2.5 rounded border border-amber-200 dark:border-amber-800 text-center font-mono font-bold my-1 text-slate-800 dark:text-slate-200">
+                            Conversion Rate (%) = (Conversions / Visits) × 100
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300"><b>Isolate Variables:</b> เปลี่ยนแปลงตัวแปรเดียวต่อการทดสอบเพื่อพิสูจน์ผลลัพธ์</p>
+                    </div>
+
+                    <div class="bg-blue-50 dark:bg-blue-950/40 p-4 rounded-xl border border-blue-200 dark:border-blue-900/50 space-y-1">
+                        <span class="font-bold text-blue-900 dark:text-blue-300 text-sm block">📈 เกณฑ์ตัดสินนัยสำคัญทางสถิติ</span>
+                        <p class="text-slate-600 dark:text-slate-300">การสรุปว่าดีไซน์ใหม่ชนะดีไซน์เดิมอย่างแท้จริง ต้องผ่านเกณฑ์:</p>
+                        <p class="font-semibold text-blue-800 dark:text-blue-300 mt-1">• Confidence Level &ge; 95% ($p$-value &lt; 0.05)</p>
+                        <p class="text-[11px] text-slate-500">หากได้ความเชื่อมั่นต่ำกว่า 95% (เช่น 80%) ถือว่ายังไม่มีนัยสำคัญทางสถิติ ห้ามนำมาสรุปผลตัดสิน</p>
+                    </div>
+                </div>
+
+                <!-- Complete A/B/N Testing Table (Full Data from Portfolio) -->
+                <div class="space-y-3">
+                    <h3 class="text-sm font-bold text-slate-900 dark:text-white">📊 ตารางสรุปผลการทดสอบ A/B/N Testing (ข้อมูลฉบับสมบูรณ์จาก Portfolio)</h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+                            <thead class="bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white font-semibold">
+                                <tr>
+                                    <th class="p-3">Variation</th>
+                                    <th class="p-3">Visits (จำนวนผู้เข้าชม)</th>
+                                    <th class="p-3">Conversions (จำนวนเป้าหมายสำเร็จ)</th>
+                                    <th class="p-3">Conversion Rate (%)</th>
+                                    <th class="p-3">ผลวิเคราะห์ทางสถิติ (Statistical Result)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                                <tr class="bg-slate-50/50 dark:bg-slate-800/50">
+                                    <td class="p-3 font-semibold text-slate-900 dark:text-white">Original (Control)</td>
+                                    <td class="p-3 font-mono">140</td>
+                                    <td class="p-3 font-mono">15</td>
+                                    <td class="p-3 font-mono font-bold text-slate-800 dark:text-slate-200">10.71%</td>
+                                    <td class="p-3 text-slate-500">Baseline (กลุ่มควบคุมดีไซน์เดิม)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">Variation 1</td>
+                                    <td class="p-3 font-mono">99</td>
+                                    <td class="p-3 font-mono">3</td>
+                                    <td class="p-3 font-mono">3.03%</td>
+                                    <td class="p-3 text-slate-400">Not statistically significant (ไม่มีนัยสำคัญทางสถิติ)</td>
+                                </tr>
+                                <tr class="bg-emerald-50 dark:bg-emerald-950/60 font-bold text-emerald-950 dark:text-emerald-200 border-l-4 border-emerald-500">
+                                    <td class="p-3 flex items-center gap-1.5">
+                                        <span>Variation 2</span>
+                                        <span class="bg-emerald-600 text-white text-[9px] px-1.5 py-0.5 rounded">WINNER 🏆</span>
+                                    </td>
+                                    <td class="p-3 font-mono">49</td>
+                                    <td class="p-3 font-mono">13</td>
+                                    <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400 text-sm">26.53%</td>
+                                    <td class="p-3 text-emerald-700 dark:text-emerald-300">Better than original. We are <b>99% confident</b> (&ge; 95%)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">Variation 3</td>
+                                    <td class="p-3 font-mono">49</td>
+                                    <td class="p-3 font-mono">3</td>
+                                    <td class="p-3 font-mono">6.12%</td>
+                                    <td class="p-3 text-slate-400">Not statistically significant (ไม่มีนัยสำคัญทางสถิติ)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">Variation 4</td>
+                                    <td class="p-3 font-mono">44</td>
+                                    <td class="p-3 font-mono">7</td>
+                                    <td class="p-3 font-mono text-amber-600 dark:text-amber-400">15.91%</td>
+                                    <td class="p-3 text-amber-600 dark:text-amber-400">Better than original, but <b>80% confident</b> (95% needed)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Sample Exam Calculation Question & Solution -->
+                <div class="bg-slate-100 dark:bg-slate-700/60 p-5 rounded-xl space-y-3 border-l-4 border-indigo-600">
+                    <span class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">ตัวอย่างข้อสอบคำนวณจริง (จาก Portfolio)</span>
+                    <h4 class="font-bold text-sm text-slate-900 dark:text-white">โจทย์: จากตารางผลการทดสอบ A/B/N Testing ด้านบน จงแสดงวิธีคำนวณหา Conversion Rate ของ Original, Variation 2 และ Variation 4 พร้อมสรุปว่าควรเลือก Variation ใดไปเปิดใช้งานจริงในระบบลงทะเบียน เพราะเหตุใด</h4>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-lg space-y-3 text-xs border border-slate-200 dark:border-slate-600">
+                        <p class="font-bold text-indigo-600 dark:text-indigo-400">📝 แสดงวิธีทำและขั้นตอนการคำนวณ:</p>
+                        
+                        <div class="space-y-1.5 font-mono text-slate-700 dark:text-slate-200">
+                            <p><b>1. คำนวณ Conversion Rate ของ Original:</b><br>
+                            CR = (15 / 140) × 100 = <b>10.71%</b></p>
+                            
+                            <p><b>2. คำนวณ Conversion Rate ของ Variation 2:</b><br>
+                            CR = (13 / 49) × 100 = <b>26.53%</b></p>
+                            
+                            <p><b>3. คำนวณ Conversion Rate ของ Variation 4:</b><br>
+                            CR = (7 / 44) × 100 = <b>15.91%</b></p>
+                        </div>
+
+                        <div class="border-t border-slate-200 dark:border-slate-700 pt-2 space-y-1">
+                            <p class="font-bold text-slate-900 dark:text-white">สรุปคำตอบและคำแนะนำเชิงธุรกิจ:</p>
+                            <p class="text-slate-600 dark:text-slate-300">ควรเลือกใช้ <b>Variation 2</b> ในระบบจริง เนื่องจากส่งผลให้ Conversion Rate เพิ่มขึ้นสูงสุดเป็น 26.53% (สูงกว่า Original ที่ได้ 10.71%) และมีความเชื่อมั่นทางสถิติสูงถึง <b>99%</b> ซึ่งผ่านเกณฑ์มาตรฐานสากลที่กำหนดไว้ (&ge; 95%)</p>
+                            <p class="text-slate-500 text-[11px]"><i>หมายเหตุการตอบ:</i> ถึงแม้ Variation 4 จะได้ CR 15.91% ซึ่งสูงกว่า Original แต่ระดับความเชื่อมั่นมีเพียง 80% ไม่ถึงเกณฑ์ 95% จึงไม่สามารถสรุปได้ว่าชนะอย่างมีนัยสำคัญทางสถิติ</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Universal Design (7 Principles) -->
+            <section id="universal" class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
+                    <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">ข้อ 6</span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">5. Universal Design (UD - ครบถ้วน 7 หลักการ)</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">แนวทางการออกแบบเพื่อให้ทุกคน ทุกสภาพร่างกาย เข้าถึงและใช้งานได้โดยไม่ต้องดัดแปลงเพิ่มเติม</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-3 text-xs">
+                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-700 space-y-1">
+                        <b class="text-indigo-600 dark:text-indigo-400 text-sm block">1. Equitable Use (ใช้งานเท่าเทียม)</b>
+                        <p class="text-slate-600 dark:text-slate-300">ทุกคนใช้งานได้ด้วยวิธีเดียวกัน ไม่สร้างความแตกต่าง เช่น รองรับ Screen Reader สำหรับผู้พิการสายตา</p>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-700 space-y-1">
+                        <b class="text-indigo-600 dark:text-indigo-400 text-sm block">2. Flexibility in Use (ยืดหยุ่นในการใช้งาน)</b>
+                        <p class="text-slate-600 dark:text-slate-300">รองรับความถนัดที่หลากหลาย เช่น สลับโหมดมือซ้าย/ขวา หรือปรับขนาดฟอนต์ได้</p>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-700 space-y-1">
+                        <b class="text-indigo-600 dark:text-indigo-400 text-sm block">3. Simple & Intuitive (เรียบง่าย เข้าใจทันที)</b>
+                        <p class="text-slate-600 dark:text-slate-300">ไม่ซับซ้อน ใช้งานได้ทันทีโดยไม่ต้องอ่านคู่มือหรือใช้ความรู้ภาษาขั้นสูง</p>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-700 space-y-1">
+                        <b class="text-indigo-600 dark:text-indigo-400 text-sm block">4. Perceptible Info (รับรู้ข้อมูลได้หลายทาง)</b>
+                        <p class="text-slate-600 dark:text-slate-300">สื่อสารข้อมูลผ่านหลายช่องทาง เช่น ใส่ Alt Text ในรูปภาพ, ซับไตเติลในวิดีโอ และไม่ใช้สีอย่างเดียวบอกสถานะ</p>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-700 space-y-1">
+                        <b class="text-indigo-600 dark:text-indigo-400 text-sm block">5. Tolerance for Error (รองรับความผิดพลาด)</b>
+                        <p class="text-slate-600 dark:text-slate-300">ลดผลกระทบจากข้อผิดพลาดที่ไม่ตั้งใจ เช่น มี Confirmation Modal ก่อนลบไฟล์</p>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-700 space-y-1">
+                        <b class="text-indigo-600 dark:text-indigo-400 text-sm block">6. Low Physical Effort (ใช้แรงกายต่ำ)</b>
+                        <p class="text-slate-600 dark:text-slate-300">ใช้งานได้สบาย ไม่เหนื่อยล้า เช่น ออกแบบ Touch Target ปุ่มบนมือถือให้ใหญ่พอ (&ge; 44x44px)</p>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-700 space-y-1 md:col-span-2">
+                        <b class="text-indigo-600 dark:text-indigo-400 text-sm block">7. Size and Space for Approach and Use (ขนาดและพื้นที่ที่เหมาะสม)</b>
+                        <p class="text-slate-600 dark:text-slate-300">จัดวาง Layout, ระยะห่าง (Padding/Margins) และขนาดขององค์ประกอบให้เข้าถึง ค้นหา และกดใช้งานได้ง่าย สบายตาในทุกขนาดหน้าจอ</p>
+                    </div>
+                </div>
+
+                <!-- Sample Exam Question & Solution -->
+                <div class="bg-slate-100 dark:bg-slate-700/60 p-5 rounded-xl space-y-3 border-l-4 border-indigo-600">
+                    <span class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">ตัวอย่างข้อสอบที่คาดว่าจะออกจริง</span>
+                    <h4 class="font-bold text-sm text-slate-900 dark:text-white">โจทย์: จงยกตัวอย่างการออกแบบฟอร์มลงทะเบียนบนแอปพลิเคชันมือถือ ให้สอดคล้องกับหลักการ Universal Design อย่างน้อย 3 ข้อ</h4>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-lg space-y-2 text-xs border border-slate-200 dark:border-slate-600">
+                        <p class="font-bold text-indigo-600 dark:text-indigo-400">📝 แนวทางการเขียนตอบ / วิธีทำ:</p>
+                        <ol class="list-decimal list-inside space-y-1 text-slate-600 dark:text-slate-300">
+                            <li><b>Perceptible Information:</b> ใส่ป้ายกำกับ (Label) ตัวหนังสือควบคู่กับสัญลักษณ์ไอคอนในช่องกรอก และแสดง Error ข้อความสีแดงพร้อมไอคอนเครื่องหมายตกใจ (!) ไม่ใช้เพียงแค่เปลี่ยนสีขอบกล่องเป็นสีแดงอย่างเดียว</li>
+                            <li><b>Low Physical Effort:</b> ออกแบบปุ่มกด "ยืนยันการลงทะเบียน" ให้มีความกว้างเต็มหน้าจอและมีความสูงไม่ต่ำกว่า 44 Pixel เพื่อให้กดง่ายด้วยนิ้วโป้งโดยไม่ต้องใช้นิ้วเกร็งกด</li>
+                            <li><b>Tolerance for Error:</b> ใช้ Date Picker หรือ Dropdown ให้เลือกวันเดือนปีเกิด แทนการเปิดให้พิมพ์ข้อความอิสระ เพื่อป้องกันผู้ใช้พิมพ์ Format วันที่ผิดพลาดตั้งแต่แรก</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Exam Answer Writing Strategy -->
+            <section id="framework" class="bg-gradient-to-br from-slate-900 to-indigo-950 p-6 md:p-8 rounded-2xl text-white shadow-md space-y-4">
+                <h2 class="text-xl font-bold flex items-center gap-2">💡 กรอบแนวทางการเขียนตอบข้อสอบภาพรวม (Master Framework)</h2>
+                <div class="grid md:grid-cols-3 gap-4 text-xs text-slate-300">
+                    <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10 space-y-1">
+                        <span class="font-bold text-amber-400 block text-sm">1. ตอบตรงประเด็น (Direct Answer)</span>
+                        <p>ระบุชื่อกฎ, Heuristic, หรือรูปแบบ Card Sorting ให้ชัดเจนในบรรทัดแรกก่อนเสมอ เช่น "ละเมิด Rule 1: Strive for Consistency"</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10 space-y-1">
+                        <span class="font-bold text-amber-400 block text-sm">2. บอกเหตุผลทาง UX (Reasoning)</span>
+                        <p>อธิบายว่าปัญหานั้นกระทบต่อผู้ใช้อย่างไร เช่น "ทำให้ผู้ใช้เกิด Cognitive Load และสับสนเนื่องจากสัญลักษณ์ไม่สอดคล้องกัน"</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10 space-y-1">
+                        <span class="font-bold text-amber-400 block text-sm">3. ให้ทางแก้รูปธรรม (Concrete Fix)</span>
+                        <p>บอกวิธีแก้ไขเป็น UI Component ชัดเจน เช่น "เปลี่ยนปุ่มเป็น Primary Button สีน้ำเงิน วางฝั่งขวา และเพิ่ม Confirmation Modal"</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Dark Mode Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.textContent = '☀️';
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIcon.textContent = '🌙';
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                themeIcon.textContent = '🌙';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                themeIcon.textContent = '☀️';
+            }
+        });
+    </script>
+</body>
+</html>
